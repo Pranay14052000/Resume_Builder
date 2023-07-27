@@ -1,0 +1,257 @@
+﻿@model OnlineResumeBuilder.Models.PersonResume
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Resume</title>
+</head>
+<body>
+
+    <div class="external-div">
+        <div class="box-1">
+       
+
+
+            <div class="sub-box-4">
+                <div class="back-color-name">
+                    <div><h2>@Model.PersonalDetails.FirstName @Model.PersonalDetails.LastName</h2></div>
+                    <div><h4> @Model.PersonalDetails.Profession</h4></div>
+                </div>
+                <br />
+                <div>@Model.PersonalDetails.ProfessionalDescription</div>
+                <div><span style="color:blue">Email:</span> @Model.PersonalDetails.Email</div>
+                <div><span style="color: blue">Address:</span> @Model.PersonalDetails.City @Model.PersonalDetails.State  @Model.PersonalDetails.Country  </div>
+            </div>
+            <div class="sub-box-5">
+                <div class="back-color"><h3>Experience</h3></div><br />
+                <div> <span>@Model.MyExperiences.Experience.Company </span><span>@Model.MyExperiences.Experience.StartDate.ToShortDateString() - @Model.MyExperiences.Experience.EndDate.ToShortDateString()</span></div>
+                <div>@Model.MyExperiences.Experience.JobTitle</div>
+                <div>@Model.MyExperiences.Experience.City , @Model.MyExperiences.Experience.Country </div>
+                <div>@Model.MyExperiences.Experience.Description</div>
+
+                <div> <span>@Model.MyExperiences.Experience.Company </span><span>@Model.MyExperiences.Experience.StartDate.ToShortDateString() - @Model.MyExperiences.Experience.EndDate.ToShortDateString()</span></div>
+                <div>@Model.MyExperiences.Experience.JobTitle</div>
+                <div>@Model.MyExperiences.Experience.City , @Model.MyExperiences.Experience.Country </div>
+                <div>@Model.MyExperiences.Experience.Description</div>
+
+
+            </div>
+            <div class="sub-box-6">
+                <div class="back-color"><h3>Education</h3></div><br />
+                <div>@Model.MyEducations.Education.Qualification</div>
+                <div>@Model.MyEducations.Education.InstituteName</div>
+                <div>@Model.MyEducations.Education.InstituteLocation</div>
+                <div>@Model.MyEducations.Education.CompletionYear</div>
+
+                <div>@Model.MyEducations.EducationSecond.Qualification</div>
+                <div>@Model.MyEducations.EducationSecond.InstituteName</div>
+                <div>@Model.MyEducations.EducationSecond.InstituteLocation</div>
+                <div>@Model.MyEducations.EducationSecond.CompletionYear</div>
+            </div>
+            <div class="sub-box-7">
+                <div class="back-color"><h3>Projects</h3></div><br />
+                <div>@Model.Accomplishments.Projects.ProjectTitle</div>
+                <div>@Model.Accomplishments.Projects.Description</div>
+
+
+            </div>
+            <div class="sub-box-8">
+                <div class="back-color"><h3>Internship</h3></div><br />
+                <div>@Model.Accomplishments.Internship.Title</div>
+                <div>@Model.Accomplishments.Internship.Description</div>
+
+            </div>
+            <div class="sub-box-9">
+                <div class="back-color"><h3>Certification</h3></div><br />
+                <div>@Model.Accomplishments.Certification.Title</div>
+                <div>@Model.Accomplishments.Certification.Description</div>
+                <br />
+
+            </div>
+
+            <div class="sub-box-3">
+               <div class="back-color"><h3>Skills</h3></div><br />
+            <div>  @Model.Accomplishments.Skill.Skills</div>
+
+        </div>
+         <div class="sub-box-2" >
+                 <div class="back-color"><h3>Languages Known</h3></div><br />
+             <div>  @Model.PersonalDetails.Languages</div>
+            
+
+            </div><br />
+          }
+
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .external-div {
+        height: 100vh;
+        width: 100vw;
+        /* display: grid;*/
+       /* grid-template-columns: 1fr 3fr;
+        */
+    }
+
+    .box-1 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        /* background-color: black;*/
+    }
+
+    .back-color-name{
+        background-color:rgb(142, 70, 70);
+    }
+
+    .back-color {
+        background-color: rgb(122, 98, 98);
+    }
+    /* .external-div {
+        height: 120vh;
+        width: 100vw;
+        border: 1px solid green;
+        display: flex;
+        justify-content:space-between
+    }
+
+    .box-1 {
+        width: 25%;
+        height: 100%;
+        border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        background-color:black;
+    }
+
+    .box-2 {
+        width: 75%;
+       // height: 100%;
+        border: 1px solid green;
+        display: flex;
+        flex-direction: column;
+        background-color:rgb(235, 225, 225)
+    }*/
+    .sub-box-1 {
+        /*border: 1px solid pink;*/
+        width: 98%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: black;
+        padding:0.5%;
+        margin:0.5%;
+       
+    }
+
+    .photo-div {
+        height: 10%;
+        width: 10%;
+        
+    }
+    .image-class {
+        width: 100%;
+        height: 100%;
+    }
+
+    .personal-info-div {
+        /* border: 1px solid red;*/
+        color: white;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* border:1PX solid green;*/
+    }
+
+
+    .sub-box-2 {
+        /*  border: 1px solid pink;*/
+        width: 92%;
+        border: 1px solid black;
+        font-weight: 200;
+        font-size: large;
+        padding: 2%;
+        margin: 1%;
+    }
+
+    .sub-box-3 {
+        /*  border: 1px solid pink;*/
+        width: 92%;
+        border: 1px solid black;
+        padding: 2%;
+        font-weight: 200;
+        font-size: large;
+        margin: 1%;
+    }
+
+    .sub-box-4 {
+        width: 92%;
+        border: 1px solid black;
+        padding: 2%;
+        font-weight: 200;
+        font-size: large;
+        margin: 1%;
+    }
+
+    .sub-box-5 {
+     
+        width: 92%;
+        border: 1px solid black;
+        padding: 2%;
+        font-weight: 200;
+        font-size: large;
+        margin: 1%;
+    }
+
+    .sub-box-6 {
+        width: 92%;
+        border: 1px solid black;
+        padding: 2%;
+        font-weight: 200;
+        font-size: large;
+        margin: 1%;
+    }
+
+    .sub-box-7 {
+        width: 92%;
+        border: 1px solid black;
+        padding: 2%;
+        font-weight: 200;
+        font-size: large;
+        margin: 1%;
+    }
+
+    .sub-box-8 {
+        width: 92%;
+        border: 1px solid black;
+        padding: 2%;
+        font-weight: 200;
+        font-size: large;
+        margin: 1%;
+    }
+
+    .sub-box-9 {
+        width: 92%;
+        border: 1px solid black;
+        padding: 2%;
+        font-weight: 200;
+        font-size: large;
+        margin: 1%;
+    }
+</style>

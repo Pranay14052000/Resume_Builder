@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+
+<link href="~/Content/MyStyles/Home.css" rel="stylesheet" />
+<div class="external-home-container">
+    <div class="div-1">
+        <div class="box-1">
+            <div class="phrase-div">
+                <h1 class="phrase-heading">
+                    Unlock Your Professional Potential: Build Your Perfect Resume with Ease!
+                </h1>
+            </div>
+            <div class="button-div">
+                <a href=@Url.Action("Login", "Users")> <button class="button-class">Create CV</button></a>
+            </div>
+         
+        </div>
+        <div class="box-2">
+            <div class="text-box"><p class="text-class">Your pathway to success starts here. Create a winning resume effortlessly with our CV Builder App. Stand out, get noticed, and land your dream job!</p></div>
+            <div class="text-box"><p class="text-class">Let your career story unfold, as words dance in perfect harmony. Our CV Builder, a muse of success, weaves your tale, captivating employers, and painting your professional destiny!</p></div>
+            <div class="text-box"><p class="text-class">Unleash your potential and stand out from the competition. Our CV Builder App offers tailored templates and expert guidance for crafting a winning resume that gets you hired!</p></div>
+
+
+
+        </div>
+
+    </div>
+    <div class="div-2">
+
+        <div class="carousel-img-div">
+            <div class="mySlides fade">
+                <img class="carousel-img-class"
+                     src="~/Images/resume1.jpg"
+                     alt="resumeimage1" />
+            </div>
+
+            <div class=" mySlides fade">
+                <img class="carousel-img-class"
+                     src="~/Images/resume2.jpg"
+                     alt="resumeimage2" />
+            </div>
+
+            <div class="mySlides fade">
+                <img class="carousel-img-class"
+                     src="~/Images/resume3.jpg"
+                     alt="resumeimage3" />
+            </div>
+
+        </div>
+
+        <div class="dot-container" style="text-align: center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+<script src="~/Scripts/MyScripts/PreventBrowserBack.js"></script>
+<script src="~/Scripts/MyScripts/Home.js"></script>
+
+
+

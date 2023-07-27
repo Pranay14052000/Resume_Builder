@@ -1,0 +1,56 @@
+﻿@model List<OnlineResumeBuilder.Models.Resume>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+
+<div class="container justify-content-around">
+    <h4 class="text-center">User Data</h4>
+
+    @if (Model.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Person Photo</th>
+                    <th>ResumeID</th>
+                    <th>PersonID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var resume in Model)
+                {
+                    
+                    <tr>
+                        @*  <td> <img alt="Resume Photo" src="@Url.Content(resume.ResumePersonPhoto)" width="70" height="70" /></td>*@
+                        <td> <img alt="Resume Photo" src="data:image/jpg;base64, @resume.ResumePersonPhoto" width="70" height="70" /></td>
+                        <td>@resume.ResumeID</td>
+                        <td>@resume.PersonID</td>
+                        <td>
+                            <a href="@Url.Action("DownloadResume", "Admin", new { resumeID = resume.ResumeID })">Download</a>
+                            @* <a href="@Url.Action("DeleteResume", "Admin", new { resumeID = resume.ResumeID })">Delete</a>*@
+                        </td>
+                    </tr>
+        
+    }
+                </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No resumes found.</p>
+            }
+    </div>
+

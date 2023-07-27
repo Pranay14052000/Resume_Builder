@@ -1,0 +1,113 @@
+﻿@model  OnlineResumeBuilder.Models.Contacts
+@{
+    ViewBag.Title = "ContactUs";
+}
+@Styles.Render("~/Content/MyStyles/ContactUs.css")
+@*<link href="~/Content/MyStyles/ContactUs.css" rel="stylesheet" />*@
+<div class="external-div">
+    <div class="internal-div-1">
+        <div class="box-1">
+            <p class="heading-class">Contact us</p>
+            <br />
+
+            <p class="box-1-text">Unleash your potential with our attentive, live support. From CV building to maximizing our services and managing your account, our friendly team is at your service, committed to assisting you every step of the way.</p>
+
+        </div>
+        <div class="box-2">
+            <img class="contact-image-class" src="~/Images/Contact-us-image.png" />
+
+        </div>
+
+    </div>
+    <div class="internal-div-2">
+        <div class="box-3">
+            @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true)
+
+                    <fieldset class="fieldset-class">
+
+                        <legend class="legend-class">Contact us</legend>
+                        <div class="form-outer-div">
+                            <div class="field-outer-class">
+                                <div class="label-class">
+                                    @Html.LabelFor(model => model.FirstName)
+                                </div>
+                                <div class="text-field-class">
+                                    @Html.TextBoxFor(model => model.FirstName, htmlAttributes: new { @class = "text-box" })
+
+                                </div>
+
+                                <small class="message-field">@Html.ValidationMessageFor(model => model.FirstName)</small>
+                            </div>
+                            <div class="field-outer-class">
+                                <div class="label-class">
+                                    @Html.LabelFor(model => model.LastName)
+                                </div>
+                                <div class="text-field-class">
+                                    @Html.TextBoxFor(model => model.LastName, htmlAttributes: new { @class = "text-box" })
+
+                                </div>
+                                <small class="message-field">
+                                    @Html.ValidationMessageFor(model => model.LastName)
+                                </small>
+                            </div>
+                            <div class="field-outer-class">
+                                <div class="label-class">
+                                    @Html.LabelFor(model => model.Email)
+                                </div>
+                                <div class="text-field-class">
+                                    @Html.TextBoxFor(model => model.Email, htmlAttributes: new { @class = "text-box" })
+
+                                </div>
+                                <small class="message-field">
+                                    @Html.ValidationMessageFor(model => model.Email)
+                                </small>
+                            </div>
+
+                            <div class="field-outer-class">
+                                <div class="label-class">
+                                    @Html.LabelFor(model => model.PhoneNumber)
+                                </div>
+                                <div class="text-field-class">
+                                    @Html.TextBoxFor(model => model.PhoneNumber, htmlAttributes: new { @Type = "number", @class = "text-box" })
+
+                                </div>
+                                <small class="message-field">
+                                    @Html.ValidationMessageFor(model => model.PhoneNumber)
+                                </small>
+                            </div>
+                            <div class="field-outer-class">
+                                <div class="label-class">
+                                    @Html.LabelFor(model => model.Message)
+
+                                </div>
+                                <div class="text-field-class">
+                                    @Html.TextAreaFor(model => model.Message, htmlAttributes: new { @class = "text-box" })
+
+                                </div>
+                                <small class="message-field">
+                                    @Html.ValidationMessageFor(model => model.Message)
+                                </small>
+                            </div>
+                            <div class="button-div-class">
+                                <button class="button-class">Submit</button>
+
+                            </div>
+                        </div>
+                    </fieldset>
+
+                }
+
+            </div>
+
+
+    </div>
+
+
+
+
+</div>
+
+
+<script src="~/Scripts/MyScripts/PreventBrowserBack.js"></script>

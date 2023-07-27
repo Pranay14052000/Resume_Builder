@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*@Styles.Render("~/Content/css")*@
+    @* @Scripts.Render("~/bundles/modernizr")*@
+ 
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/MyScripts/Logout.js"></script>
+    <link href="~/Content/MyStyles/TemplateDashboard.css" rel="stylesheet" />
+</head>
+
+<body>
+    <Header class="header-external-container">
+        <div class="image-div">
+            <img src="~/Images/claysys-logo.png" alt="logo-image" class="image-class" />
+
+        </div>
+        <div class="username-div">Welcome... @Session["UserName"] </div>
+        <nav class="navbar-class">
+            <ul class="navlink-ul">
+
+                <li class="nav-link" color="black">@Html.ActionLink("My Resumes", "MyResumes", "Users")</li>
+                <li class="nav-link">@Html.ActionLink("Personal Details", "PersonalDetails", "Users")</li>
+                <li class="nav-link">@Html.ActionLink("Experience", "MyExperiences", "Users")</li>
+                <li class="nav-link">@Html.ActionLink("Education", "MyEducations", "Users")</li>
+                <li class="nav-link">@Html.ActionLink("Accomplishments", "Accomplishments", "Users")</li>
+                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Logout
+                </button>
+
+            </ul>
+
+        </nav>
+
+    </Header>
+    <div class="content-div">
+        <!-- Button trigger modal -->
+        @*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+            </button>*@
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Logout</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are u sure..u want to Logout?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-success" id="yesButton">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @RenderBody()
+    </div>
+    <footer class="footer-external-container">
+        <div class="footer-div-1"><span>&copy;claysys</span></div>
+
+    </footer>
+
+    <script>
+         var redirectUrl = '@Url.Action("Home", "Dashboard")';
+    </script>
+    @* @Scripts.Render("~/bundles/jquery")
+         @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)*@
+</body>
+</html>
+<style>
+
+
+</style>

@@ -1,0 +1,49 @@
+﻿@model List<OnlineResumeBuilder.Models.Resume>
+@{
+    ViewBag.Title = "MyResumes";
+    Layout = "~/Views/Shared/TemplateDashboardView.cshtml";
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+
+<div class="container justify-content-around">
+    <h4 class="text-center">Resumes</h4>
+
+    @if (Model.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Resume ID</th>
+                    <th>File Path</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var resume in Model)
+                {
+                    <tr>
+                        <td>@resume.ResumeID</td>
+                        <td>@resume.FilePath</td>
+                        <td>
+                            <a href="@Url.Action("DownloadResume", "Users", new { resumeID = resume.ResumeID })">Download</a> |
+                            <a href="@Url.Action("DeleteResume", "Users", new { resumeID = resume.ResumeID })">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No resumes found.</p>
+    }
+</div>
+<script src="~/Scripts/MyScripts/PreventBrowserBack.js"></script>

@@ -1,0 +1,148 @@
+﻿body {
+}
+
+.external-div {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(59, 101, 108);
+    display:flex;
+    flex-direction: column;
+}
+.internal-div-1 {
+    height: 35%;
+    width: 100%;
+  //  border: 1px solid blue;
+    display: flex;
+    background-color: rgb(26, 46, 102)
+}
+.internal-div-2 {
+    height: 65%;
+    width: 100%;
+  //  border:1px solid red;
+}
+.box-1{
+    width:70%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+ //   border:1px solid red;
+
+}
+
+.heading-class {
+ //   border: 1px solid red;
+    text-align: center;
+    color: rgb(218, 204, 204);
+    font-size: 300%;
+    font-weight: 200;
+}
+
+.box-1-text {
+   // border: 1px solid maroon;
+    color: rgb(218, 204, 204);
+    font-size: 150%;
+    text-align:justify;
+    width:70%;
+    font-weight:200;
+}
+.box-2 {
+    width: 30%;
+    height: 100%;
+//    border: 1px solid red;
+}
+.contact-image-class{
+    width:100%;
+    height:100%;
+}
+
+.box-3{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+ //   border:1px solid yellow;
+}
+
+
+
+.fieldset-class {
+    width: 25vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // border: 1px solid pink;
+    background-color: rgb(117, 107, 116);
+}
+.legend-class {
+    font-family: Arial Black;
+    color: black;
+    font-size:x-large;
+}
+.form-outer-div {
+    height: 100%;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(0, 115, 153);
+    border-radius: 2%;
+    box-shadow: 5px 5px 8px rgb(0, 57, 77), 10px 10px 8px rgb(0, 37, 51), 15px 15px 8px rgb(0, 30, 40);
+}
+
+.field-outer-class {
+    display: flex;
+  //  border: 2px solid green;
+    flex-direction: column;
+    height: 15%;
+    width: 100%;
+    // border: 1px solid maroon;
+    border-radius: 5%;
+    background-color: rgb(17, 82, 93);
+}
+.label-class{
+    height:30%;
+    width:100%;
+    color:white;
+ //   border:1px solid yellow;
+}
+
+
+.text-field-class {
+    height: 50%;
+    width: 100%;
+  //  border: 1% solid black;
+}
+.text-box {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(194, 201, 202);
+    border-radius: 5%;
+}
+.message-field {
+    height: 20%;
+    color: red;
+ //   border: 1px solid red;
+}
+.button-div-class {
+    display: flex;
+    flex-direction: column;
+    height: 16%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+   // border: 1px solid maroon;
+    background-color: rgb(17, 82, 93);
+}
+.button-class {
+    height: 60%;
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 5%;
+    background-color: rgb(194, 201, 202);
+}

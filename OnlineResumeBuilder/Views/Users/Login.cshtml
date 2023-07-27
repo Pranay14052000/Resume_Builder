@@ -1,0 +1,65 @@
+﻿@* For temporary i am using contacts table than i will use usertable*@
+
+@model OnlineResumeBuilder.Models.Login
+@{
+    ViewBag.Title = "Login";
+
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+<link href="~/Content/MyStyles/Login.css" rel="stylesheet" />
+<body>
+<div class="external-div">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset class="fieldset-class">
+
+            <legend class="legend-class">Login</legend>
+            <div class="form-outer-div">
+                <div class="field-outer-class">
+                    <div class="label-class">
+                        @Html.LabelFor(model => model.UserName)
+                    </div>
+                    <div class="text-field-class">
+                        @Html.TextBoxFor(model => model.UserName, htmlAttributes: new { @class = "text-box" })
+
+                    </div>
+
+                    <small class="message-field">@Html.ValidationMessageFor(model => model.UserName)</small>
+                </div>
+                <div class="field-outer-class">
+                    <div class="label-class">
+                        @Html.LabelFor(model => model.Password)
+                    </div>
+                    <div class="text-field-class">
+                        @Html.TextBoxFor(model => model.Password, htmlAttributes: new { @class = "text-box", Type = "password" })
+
+                    </div>
+                    <small class="message-field">
+                        @Html.ValidationMessageFor(model => model.Password)
+                    </small>
+                </div>
+
+                <div class="button-div-class">
+                    <button class="button-class">Login</button>
+
+                </div>
+
+                <div class="formlink-div">
+
+                    <a style="color:White" href=@Url.Action("SignUp", "Users")>SignUp</a>
+
+                </div>
+
+            </div>
+        </fieldset>
+
+    }
+
+
+
+</div>
+
+</body>
+<script src="~/Scripts/MyScripts/PreventBrowserBack.js"></script>

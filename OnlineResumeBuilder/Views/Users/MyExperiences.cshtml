@@ -1,0 +1,123 @@
+﻿@model OnlineResumeBuilder.Models.MyExperiences
+
+
+@{
+    ViewBag.Title = "MyExperiences";
+    Layout = "~/Views/Shared/TemplateDashboardView.cshtml";
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/MyScripts/DropDown.js"></script>
+
+</head>
+
+<body>
+
+    @using (Html.BeginForm())
+    {
+        <div class="container justify-content-center border-secondary col-5">
+            <h2 class="text-center">Experiences</h2>
+            <div class="form-control justify-content-center border-primary">
+               
+                    <div class="container mb-1">
+                        <div class="m-2 text-center">Experience</div>
+                        <div class="form-control">
+
+                            <div class="form-group m-2">
+                                @Html.LabelFor(model => model.Experience.JobTitle)
+                                @Html.TextBoxFor(model => model.Experience.JobTitle, new { @class = "form-control" })
+                                <div><small class="text-danger">@Html.ValidationMessageFor(model => model.Experience.JobTitle)</small></div>
+                            </div>
+                            <div class="form-group m-2">
+                                @Html.LabelFor(model => model.Experience.Company)
+                                @Html.TextBoxFor(model => model.Experience.Company, new { @class = "form-control" })
+                                <div><small class="text-danger">@Html.ValidationMessageFor(model => model.Experience.Company)</small></div>
+                            </div>
+                            <div class="form-group m-2">
+                                @Html.LabelFor(model => model.Experience.Country)
+                                <div> @Html.DropDownListFor(model => model.Experience.Country, new SelectList(Enum.GetValues(typeof(OnlineResumeBuilder.Models.Countries))), "Select", new { @class = "text-box form-control", onchange = "populateCountryBasedCities()",@id="Countryone" })</div>
+                                <div><small class="text-danger">@Html.ValidationMessageFor(model => model.Experience.Country)</small></div>
+                            </div>
+                            <div class="form-group m-2">
+                                @Html.LabelFor(model => model.Experience.City)
+                                <div> @Html.DropDownListFor(model => model.Experience.City, new List<SelectListItem>(), "Select", new { @class = "text-box form-control", @id="Cityone" })</div>
+                                <div><small class="text-danger">@Html.ValidationMessageFor(model => model.Experience.City)</small></div>
+                            </div>
+
+                            <div class="form-group m-2">
+                                <div> @Html.LabelFor(model => model.Experience.StartDate)</div>
+                                <div> @Html.EditorFor(model => model.Experience.StartDate, new { @class = "form-control" })</div>
+                                <div><small class="text-danger">@Html.ValidationMessageFor(model => model.Experience.StartDate)</small></div>
+                            </div>
+                            <div class="form-group m-2">
+                                <div> @Html.LabelFor(model => model.Experience.EndDate)</div>
+                                <div> @Html.EditorFor(model => model.Experience.EndDate, new { @class = "form-control" })</div>
+                                <div><small class="text-danger">@Html.ValidationMessageFor(model => model.Experience.EndDate)</small></div>
+                            </div>
+                            <div class="form-group m-2">
+                                @Html.LabelFor(model => model.Experience.Description)
+                                @Html.TextAreaFor(model => model.Experience.Description, new { @class = "form-control" })
+                                <div><small class="text-danger">@Html.ValidationMessageFor(model => model.Experience.Description)</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container mb-1">
+                        <div class=" m-2 text-center">Experience-2</div>
+                        <div class="form-control">
+                            <div class="form-group m-2">
+                                @Html.LabelFor(model => model.ExperienceSecond.JobTitle)
+                                @Html.TextBoxFor(model => model.ExperienceSecond.JobTitle, new { @class = "form-control" })
+                                <div><small class="text-danger">@Html.ValidationMessageFor(model => model.ExperienceSecond.JobTitle)</small></div>
+                            </div>
+                            <div class="form-group m-2">
+                                @Html.LabelFor(model => model.ExperienceSecond.Company)
+                                @Html.TextBoxFor(model => model.ExperienceSecond.Company, new { @class = "form-control" })
+                                <div><small class="text-danger">@Html.ValidationMessageFor(model => model.ExperienceSecond.Company)</small></div>
+                            </div>
+
+                            <div class="form-group m-2">
+                                @Html.LabelFor(model => model.ExperienceSecond.Country)
+                                <div> @Html.DropDownListFor(model => model.ExperienceSecond.Country, new SelectList(Enum.GetValues(typeof(OnlineResumeBuilder.Models.Countries))), "Select", new { @class = "text-box form-control", onchange = "populateCountryBasedCitiesSecond()", @id="Countrytwo" })</div>
+                                <div><small class="text-danger">@Html.ValidationMessageFor(model => model.ExperienceSecond.Country)</small></div>
+                            </div>
+                            <div class="form-group m-2">
+                                @Html.LabelFor(model => model.ExperienceSecond.City)
+                                <div> @Html.DropDownListFor(model => model.ExperienceSecond.City, new List<SelectListItem>(), "Select", new { @class = "text-box form-control", @id = "Citytwo" })</div>
+                                <div><small class="text-danger">@Html.ValidationMessageFor(model => model.ExperienceSecond.City)</small></div>
+                            </div>
+   
+                            <div class="form-group m-2">
+                                <div> @Html.LabelFor(model => model.ExperienceSecond.StartDate)</div>
+                                <div> @Html.EditorFor(model => model.ExperienceSecond.StartDate, new { @class = "form-control" })</div>
+                                <div><small class="text-danger">@Html.ValidationMessageFor(model => model.ExperienceSecond.StartDate)</small></div>
+                            </div>
+                            <div class="form-group m-2">
+                                <div>@Html.LabelFor(model => model.ExperienceSecond.EndDate)</div>
+                                <div> @Html.EditorFor(model => model.ExperienceSecond.EndDate, new { @class = "form-control" })</div>
+                                <div><small class="text-danger">@Html.ValidationMessageFor(model => model.ExperienceSecond.EndDate)</small></div>
+                            </div>
+
+                            <div class="form-group m-2">
+                                @Html.LabelFor(model => model.ExperienceSecond.Description)
+                                @Html.TextAreaFor(model => model.ExperienceSecond.Description, new { @class = "form-control" })
+                                <div><small class="text-danger">@Html.ValidationMessageFor(model => model.ExperienceSecond.Description)</small></div>
+                            </div>
+                        </div>
+                    </div>
+
+              
+                <div class="justify-content-center text-center m-3">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </div>
+            </div>
+            }
+
+
+
+    </body>
+<script src="~/Scripts/MyScripts/PreventBrowserBack.js"></script>

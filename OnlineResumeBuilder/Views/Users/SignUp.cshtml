@@ -1,0 +1,234 @@
+﻿@model OnlineResumeBuilder.Models.Users
+@{
+    ViewBag.Title = "SignUpView";
+}
+<link href="~/Content/MyStyles/SignUp.css" rel="stylesheet" />
+
+<body>
+<div class="external-div">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <fieldset class="fieldset-class">
+            <legend class="legend-class">Sign up</legend>
+            <div class="form-outer-div">
+                <div class="inline-fields-div">
+                    <div class="field-outer-div">
+                        <div class="label-class">
+                            @Html.LabelFor(model => model.FirstName)
+                        </div>
+                        <div class="text-field-class">
+                            @Html.TextBoxFor(model => model.FirstName, htmlAttributes: new { @class = "text-box" })
+
+                        </div>
+
+                        <small class="message-field">@Html.ValidationMessageFor(model => model.FirstName)</small>
+                    </div>
+                    <div class="field-outer-div">
+                        <div class="label-class">
+                            @Html.LabelFor(model => model.LastName)
+                        </div>
+                        <div class="text-field-class">
+                            @Html.TextBoxFor(model => model.LastName, htmlAttributes: new { @class = "text-box" })
+
+                        </div>
+
+                        <small class="message-field">@Html.ValidationMessageFor(model => model.LastName)</small>
+
+                    </div>
+
+                </div>
+                <div class="inline-fields-div">
+                    <div class="field-outer-div">
+                        <div class="label-class">
+                            @Html.LabelFor(model => model.BirthDate)
+                        </div>
+                        <div class="text-field-class">
+                            @*  @Html.TextBoxFor(model => model.BirthDate, htmlAttributes: new { @class = "text-box" , @id="BirthDate", @onfocusout="setAge()"})*@
+                            @Html.EditorFor(model => model.BirthDate, new { @class = "text-box", @id = "BirthDate" })
+
+
+                        </div>
+
+                        <small class="message-field">@Html.ValidationMessageFor(model => model.BirthDate)</small>
+
+                    </div>
+                    <div class="field-outer-div">
+                        <div class="label-class">
+                            @Html.LabelFor(model => model.Age)
+                        </div>
+                        <div class="text-field-class">
+                            @Html.TextBoxFor(model => model.Age, htmlAttributes: new { @class = "text-box", @type = "number", @id = "Age", @onchange = "setAge()" })
+
+                        </div>
+
+                        <small class="message-field">@Html.ValidationMessageFor(model => model.Age)</small>
+
+                    </div>
+
+                </div>
+                <div class="inline-fields-div">
+                    <div class="field-outer-div">
+                        <div class="label-class">
+                            @Html.LabelFor(model => model.Gender)
+                        </div>
+                        <div class="text-field-class">
+                            @* @Html.TextBoxFor(model => model.Gender, htmlAttributes: new { @class = "text-box" })*@
+
+
+                            @Html.DropDownListFor(model => model.Gender, new SelectList(Enum.GetValues(typeof(OnlineResumeBuilder.Models.Gender))), "Select", new { @class = "text-box" })
+
+
+                        </div>
+
+                        <small class="message-field">@Html.ValidationMessageFor(model => model.Gender)</small>
+
+                    </div>
+                    <div class="field-outer-div">
+                        <div class="label-class">
+                            @Html.LabelFor(model => model.PhoneNumber)
+                        </div>
+                        <div class="text-field-class">
+                            @Html.TextBoxFor(model => model.PhoneNumber, htmlAttributes: new { @class = "text-box" })
+
+                        </div>
+
+                        <small class="message-field">@Html.ValidationMessageFor(model => model.PhoneNumber)</small>
+
+                    </div>
+             
+
+
+
+
+                </div>
+                <div class="inline-fields-div">
+                    <div class="field-outer-div">
+                        <div class="label-class">
+                            @Html.LabelFor(model => model.Address)
+                        </div>
+                        <div class="text-field-class">
+                            @Html.TextAreaFor(model => model.Address, htmlAttributes: new { @class = "text-box" })
+
+                        </div>
+
+                        <small class="message-field">@Html.ValidationMessageFor(model => model.Address)</small>
+
+                    </div>
+                    <div class="field-outer-div">
+                        <div class="label-class">
+                            @Html.LabelFor(model => model.Email)
+                        </div>
+                        <div class="text-field-class">
+                            @Html.TextBoxFor(model => model.Email, htmlAttributes: new { @class = "text-box" })
+
+                        </div>
+
+                        <small class="message-field">@Html.ValidationMessageFor(model => model.Email)</small>
+
+                    </div>
+
+
+                </div>
+                <div class="inline-fields-div">
+                    <div class="field-outer-div">
+                        <div class="label-class">
+                            @Html.LabelFor(model => model.Country)
+                        </div>
+                        <div class="text-field-class">
+                           @* @Html.TextBoxFor(model => model.Country, htmlAttributes: new { @class = "text-box" })*@
+                               @Html.DropDownListFor(model => model.Country, new SelectList(Enum.GetValues(typeof(OnlineResumeBuilder.Models.Country))), "Select", new { @class = "text-box", onchange="populateStates()"})
+
+                        </div>
+
+                        <small class="message-field">@Html.ValidationMessageFor(model => model.Country)</small>
+
+                    </div>
+                    <div class="field-outer-div">
+                        <div class="label-class">
+                            @Html.LabelFor(model => model.State)
+                        </div>
+                        <div class="text-field-class">
+                            @*   @Html.TextBoxFor(model => model.State, htmlAttributes: new { @class = "text-box" })*@
+                            @Html.DropDownListFor(model => model.State, new List<SelectListItem>(), "Select", new { @class = "text-box", onchange = "populateCities()" })
+                        </div>
+
+                        <small class="message-field">@Html.ValidationMessageFor(model => model.State)</small>
+
+                    </div>
+
+
+                </div>
+                <div class="inline-fields-div">
+                    <div class="field-outer-div">
+                        <div class="label-class">
+                            @Html.LabelFor(model => model.City)
+                        </div>
+                        <div class="text-field-class">
+                            @*   @Html.TextBoxFor(model => model.City, htmlAttributes: new { @class = "text-box" })*@
+                            @Html.DropDownListFor(model => model.City, new List<SelectListItem>(), "Select", new { @class = "text-box" })
+                        </div>
+
+                        <small class="message-field">@Html.ValidationMessageFor(model => model.City)</small>
+
+                    </div>
+                    <div class="field-outer-div">
+                        <div class="label-class">
+                            @Html.LabelFor(model => model.UserName)
+                        </div>
+                        <div class="text-field-class">
+                            @Html.TextBoxFor(model => model.UserName, htmlAttributes: new { @class = "text-box" })
+
+                        </div>
+
+                        <small class="message-field">@Html.ValidationMessageFor(model => model.UserName)</small>
+
+                    </div>
+
+                </div>
+                <div class="inline-fields-div">
+                    <div class="field-outer-div">
+                        <div class="label-class">
+                            @Html.LabelFor(model => model.Password)
+                        </div>
+                        <div class="text-field-class">
+                            @Html.TextBoxFor(model => model.Password, htmlAttributes: new { @class = "text-box", @type = "password", @id = "password", onchange = "clearConfirmPassword()" })
+
+                        </div>
+
+                        <small class="message-field">@Html.ValidationMessageFor(model => model.Password)</small>
+
+                    </div>
+                    <div class="field-outer-div">
+                        <div class="label-class">
+                      
+
+                            @Html.LabelFor(model => model.ConfirmPassword)
+                        </div>
+                        <div class="text-field-class">
+                            @Html.TextBoxFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "text-box", @type = "password", @id = "confirmPassword", onfocusout = "validateConfirmationPassword()" })
+
+                        </div>
+
+                        <small class="message-field">@Html.ValidationMessageFor(model => model.ConfirmPassword)</small>
+
+
+
+                    </div>
+
+                </div>
+                <div class="button-div-class">
+                    <button class="button-class">Sign up</button>
+                </div>
+            </div>
+        </fieldset>
+
+    }
+
+</div>
+
+</body>
+<script src="~/Scripts/MyScripts/PreventBrowserBack.js"></script>
+<script src="~/Scripts/MyScripts/SignUp.js"></script>
+
+<script src="~/Scripts/MyScripts/DropDown.js"></script>
